@@ -180,8 +180,8 @@ for a in v vi vim; do alias $a='nvim'; done
 source  /etc/morphle/morphle.profile
 source ~/.config/zshrc.d/dots-hyprland.zsh
 
-eval "$(zoxide init zsh --cmd cd)"
-#export $TERM="xterm-256color"
-
 # Dotfiles bare repo
 alias config='git --git-dir=$HOME/.arch-dotfiles/ --work-tree=$HOME'
+
+# zoxide — must be last
+eval "$(zoxide init zsh --cmd cd)"

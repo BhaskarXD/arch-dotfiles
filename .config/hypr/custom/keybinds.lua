@@ -10,8 +10,15 @@ hl.bind("SUPER + SHIFT + W", hl.dsp.exec_cmd("google-chrome-stable"), { descript
 -- Spotify
 hl.bind("SUPER + SHIFT + K", hl.dsp.exec_cmd("spotify-launcher"), { description = "App: Spotify" })
 
---##! Window focus (vim-style — H only, J/K/L conflict with bar/OSK/lock)
+--##! Window focus (vim-style HJKL)
+-- Unbind end-4 defaults that conflict, then re-bind to focus
+hl.unbind("SUPER + J")  -- was: bar toggle
+hl.unbind("SUPER + K")  -- was: on-screen keyboard
+hl.unbind("SUPER + L")  -- was: lock session (still available via CTRL+ALT+Delete → session menu)
 hl.bind("SUPER + H", hl.dsp.focus({ direction = "l" }), { description = "Window: Focus left" })
+hl.bind("SUPER + J", hl.dsp.focus({ direction = "d" }), { description = "Window: Focus down" })
+hl.bind("SUPER + K", hl.dsp.focus({ direction = "u" }), { description = "Window: Focus up" })
+hl.bind("SUPER + L", hl.dsp.focus({ direction = "r" }), { description = "Window: Focus right" })
 
 --##! Workspace — send window with SUPER+SHIFT+number
 -- (SUPER+ALT+number already exists in defaults; this adds SUPER+SHIFT+number)
