@@ -45,10 +45,8 @@ hl.bind("SUPER + CTRL + Q",         hl.dsp.exec_cmd("loginctl lock-session"),   
 hl.bind("SUPER + SHIFT + Escape",   hl.dsp.exec_cmd("systemctl suspend || loginctl suspend"),    { locked = true, description = "Session: Sleep" })
 
 -- ── Quake terminal (grave = ` key, top-left next to 1) ───────────────────────
--- First press: launches kitty into special:quake workspace
--- All presses: toggle visibility
+-- Kitty is spawned once at login (custom/execs.lua); this just toggles visibility.
 hl.bind("SUPER + grave", hl.dsp.workspace.toggle_special("quake"), { description = "App: Quake terminal" })
-hl.bind("SUPER + grave", hl.dsp.exec_cmd("[workspace special:quake silent] kitty --title quake-terminal"), {})
 
 -- ── Window cycle (alt-tab) ────────────────────────────────────────────────────
 hl.bind("ALT + Tab",       hl.dsp.focus({ window = "next" }), { description = "Window: Cycle next" })

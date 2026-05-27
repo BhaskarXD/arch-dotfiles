@@ -1,6 +1,6 @@
 -- ── Quake terminal ───────────────────────────────────────────────────────────
--- Launched via: [workspace special:quake silent] kitty --title quake-terminal
--- Toggle with: SUPER+grave
+-- Launched once at login (custom/execs.lua); toggled with SUPER+grave
+-- Size and position match gaps_out (5px) so edges align with tiled windows
 hl.window_rule({ match = { title = "^(quake-terminal)$" }, float = true })
-hl.window_rule({ match = { title = "^(quake-terminal)$" }, size  = { "(monitor_w*1.0)", "(monitor_h*0.4)" } })
-hl.window_rule({ match = { title = "^(quake-terminal)$" }, move  = { 0, 0 } })
+hl.window_rule({ match = { title = "^(quake-terminal)$" }, size  = { "(monitor_w - 10)", "(monitor_h*0.4)" } })
+hl.window_rule({ match = { title = "^(quake-terminal)$" }, move  = { 5, 5 } })
