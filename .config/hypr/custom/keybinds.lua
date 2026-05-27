@@ -45,8 +45,10 @@ hl.bind("SUPER + CTRL + Q",         hl.dsp.exec_cmd("loginctl lock-session"),   
 hl.bind("SUPER + SHIFT + Escape",   hl.dsp.exec_cmd("systemctl suspend || loginctl suspend"),    { locked = true, description = "Session: Sleep" })
 
 -- ── Quake terminal (grave = ` key, top-left next to 1) ───────────────────────
--- Kitty is spawned once at login (custom/execs.lua); this just toggles visibility.
+-- pgrep guard: only spawns kitty if none is running; workspace rule (rules.lua) places it.
+-- Both binds fire every press: toggle shows/hides, exec is a no-op when already running.
 hl.bind("SUPER + grave", hl.dsp.workspace.toggle_special("quake"), { description = "App: Quake terminal" })
+hl.bind("SUPER + grave", hl.dsp.exec_cmd("pgrep -xf 'kitty --title quake-terminal' || kitty --title quake-terminal"), {})
 
 -- ── Window cycle (alt-tab) ────────────────────────────────────────────────────
 hl.bind("ALT + Tab",       hl.dsp.focus({ window = "next" }), { description = "Window: Cycle next" })
