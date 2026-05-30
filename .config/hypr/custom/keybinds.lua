@@ -39,6 +39,10 @@ hl.bind("SUPER + ALT + PERIOD",   hl.dsp.exec_cmd("hyprctl dispatch focusmonitor
 hl.bind("SUPER + SHIFT + COMMA",  hl.dsp.exec_cmd("hyprctl dispatch movewindow mon:l silent"), { description = "Monitor: Move window left"       })
 hl.bind("SUPER + SHIFT + PERIOD", hl.dsp.exec_cmd("hyprctl dispatch movewindow mon:r silent"), { description = "Monitor: Move window right"      })
 
+-- ── Shell reload (full: quickshell + wallpaper + clipboard) ──────────────────
+hl.bind("CTRL + SUPER + SHIFT + R", hl.dsp.exec_cmd("$HOME/.config/hypr/custom/scripts/reload-shell.sh"),
+    { description = "Shell: Full reload (qs + wallpaper + clipboard)" })
+
 -- ── Session ───────────────────────────────────────────────────────────────────
 hl.bind("SUPER + Escape",           hl.dsp.exec_cmd("loginctl lock-session"),                    { description = "Session: Lock"  })
 hl.bind("SUPER + CTRL + Q",         hl.dsp.exec_cmd("loginctl lock-session"),                    { description = "Session: Lock (macOS/Win style)" })
